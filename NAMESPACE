@@ -1,0 +1,53 @@
+import("tkrplot")
+import("tcltk")
+importFrom("graphics", "abline", "layout", "layout.show", "par", "plot", "points")
+importFrom("grDevices", "dev.off", "jpeg", "pdf", "png", "postscript", "rainbow")
+importFrom("methods", "as", "is", "new", "coerce")
+importFrom("stats", "lm", "loess", "na.exclude", "predict", "runif")
+importFrom("tools", "file_ext")
+importFrom("utils", "read.table", "write.table")
+
+
+
+exportClasses("Interpolation")
+exportMethods("name","rates","visible","color","persistent",
+			"name<-","rates<-","visible<-","color<-","persistent<-","interpolate",
+			"userParam","query","argList","createOrder","plotModel","plotRate")
+
+exportClasses("InterpolationParam")
+exportMethods("InterpolationParam","paramName","paramType","paramDesc",
+			"paramValues","paramMin","paramMax","paramDefault","paramFun",
+			"paramName<-","paramType<-","paramDesc<-","paramValues<-","paramMin<-",
+			"paramMax<-","paramDefault<-","paramFun<-","coerce")
+
+exportMethods("registerInterpolationMethod","getInterList")
+
+exportClasses("MapCollection")
+exportMethods("MapCollection","setNames","textFile",length)
+
+exportClasses("MareyMap")
+exportMethods("MareyMap","setName","mapName","setName","mapName",
+			"markerNames","physicalPositions","geneticDistances","interpolations",
+			"markerValidity","physicalPositions<-","geneticDistances<-",
+			"markerNames<-","setName<-","mapName<-","interpolations<-",
+			"markerValidity<-","interpolation",
+			"interpolation<-","validPositions","plot","plotMarkers","plotModels",
+			"plotRates","removeMarker","textFile")
+
+exportClasses("MapSet")
+exportMethods("MapSet","setName","mapNames","textFile")
+
+exportClasses("MMLoess")
+exportMethods("MMLoess","span","degree","span<-","degree<-","query",
+				"interpolate","plotModel","plotRate","userParam")
+
+exportClasses("MMSlidingWindow")
+exportMethods("MMSlidingWindow","size","shift","threshold","size<-","shift<-",
+			"threshold<-","query","interpolate","plotModel","plotRate","userParam")
+
+exportClasses("MMSpline3")
+exportMethods("MMSpline3","query","interpolate","plotModel","plotRate","userParam",
+                "spar","spar<-","df","df<-","type","type<-","gcv","gcv<-")
+
+exportMethods("startMareyMapGUI")
+

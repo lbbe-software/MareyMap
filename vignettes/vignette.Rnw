@@ -1,0 +1,473 @@
+\documentclass[10pt,a4paper,french]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{natbib, url}
+\usepackage{ucs}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color, colortbl}
+\usepackage{fullpage}% sans marge
+\renewcommand{\baselinestretch}{1}% definition interligne
+\usepackage{lmodern}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{multicol}
+\newcommand{\quotes}[1]{``#1''}
+\parindent=0pt \parskip=0pt
+%\VignetteIndexEntry{Using the MareyMap package}
+
+\title{The \texttt{MareyMap} package version 1.3}
+\author{Aurélie Siberchicot, Clément Rezvoy, Delphine Charif, \\
+Laurent Guéguen and Gabriel Marais}
+
+\begin{document}
+\maketitle
+
+\texttt{MareyMap} is an \texttt{R} package to estimate local recombination rates along the genome. 
+\texttt{MareyMap} relies on comparing the genetic and the physical maps of a given chromosome to estimate local recombination rates (given by the slope of the curve describing the relationship between both variables), 
+a graphical method called the Marey map method introduced by A. Chakravarti in 1991\footnote{Chakravarti A. (1991) A graphical representation of genetic and physical maps: the Marey map. Genomics 11(1):219-22.}. 
+\texttt{MareyMap} accepts Marey map data as input (genetic and physical positions of markers for a set of chromosomes of a species) and will return local recombination rate estimates.\\
+
+\texttt{MareyMap} has many features and possible options (detailled in the present user guideline document) including:
+\begin{itemize}
+  \item taking Marey map data from any species, including some Marey map data for a few species provided with the package
+  \item estimating local recombination rates using different interpolation methods
+  \item providing in an automatic way local recombination rates for any given gene (or set of genes) in the genome
+\end{itemize}
+\vspace{0.6cm}
+
+If you use \texttt{MareyMap}, please cite: \\
+Rezvoy C, Charif D, Guéguen L, Marais GAB. (2007) MareyMap: an R-based tool with graphical interface for estimating recombination rates. \textit{Bioinformatics} 23(16):2188-9.
+
+\vspace{0.6cm}
+\tableofcontents
+\vspace{0.8cm}
+
+\section{Installing and starting \texttt{MareyMap}}
+
+\subsection{Initial installation}
+\texttt{MareyMap} is a package developed under the \texttt{R} software;
+sources are available on \url{http://cran.r-project.org/}. The
+\texttt{R} software must be installed in such a way that graphical
+interfaces can work. On Windows and Mac OS, this is automatically
+done when the \texttt{R} software is installed. On Linux, the two
+libraries \textit{tcl} and \textit{tk} must be installed, which is done by installing
+\texttt{R} with the -\textit{-with-tcltk} option.\\
+
+When \texttt{R} is installed, the package \texttt{MareyMap} and its
+dependencies \texttt{tcltk}, \texttt{tkrplot} and \texttt{tools} must be installed,
+using the commands 
+
+\begin{verbatim}
+  install.packages(MareyMap)
+  install.packages(tcltk)
+  install.packages(tkrplot)
+  install.packages(tools)
+\end{verbatim}
+
+on a \texttt{R} console.
+
+
+
+\subsection{Starting MareyMap}
+In a \texttt{R} console, first load the
+package:
+
+\begin{verbatim}
+  library(MareyMap)
+\end{verbatim}
+
+Then, open a graphical interface
+with the command:
+\begin{verbatim}
+  startMareyMapGUI()
+\end{verbatim}
+
+A new window, as shown in Figure~\ref{fig:1} should open. If not, close your
+\texttt{R} console, re-load and re-start the package.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{start.png}
+\caption{The \texttt{MareyMap} graphical interface}
+\label{fig:1}
+\end{figure}
+
+
+\section{Data}
+
+
+\subsection{Loading data}
+The user must either choose at least one dataset among
+those available in the \texttt{MareyMap} package or import his/her own
+dataset.\\
+
+6 ready-to-use datasets are provided along with the package. 
+This includes Marey maps for:
+\textit{Arabidopsis thaliana}\footnote{Wright SI, Agrawal N, Bureau TE. 
+  Effects of recombination rate and gene density on transposable
+  element distributions in Arabidopsis thaliana. 
+  Genome Res. 2003. 13:1897-1903.}, 
+\textit{Caenorhabditis elegans}\footnote{Wormbase Release WS160
+  \url{http://www.wormbase.org}. see Rizzon C, Martin E, Marais G, Duret L, Segalat L, Biemont C. 
+  Patterns of selection against transposons inferred from the distribution of Tc1, Tc3 and Tc5 
+  insertions in the mut-7 line of the nematode Caenorhabditis elegans. 
+  Genetics. 2003. 165:1127-1135.}, 
+\textit{Drosophila melanogaster}\footnote{Marais G, Piganeau G. 
+  Hill-Robertson interference is a minor determinant of variations in codon bias
+  across Drosophila melanogaster and Caenorhabditis elegans genomes.
+  Mol Biol Evol. 2002. 19:1399-1406.} 
+and \textit{Homo sapiens}\footnote{Rutgers Combined Linkage-Physical Maps, version
+  2.0 (Build 35). Xiangyang Kong and Tara Matise 12/08/2004.
+  see Kong et al. A high-resolution recombination map of the human genome. 
+  Nat Genet. 2002. 31:241-247.} 
+  (male, female and sex-averaged).\\
+
+
+When the input dataset does not come from the package, the extension of the data file must be \textit{txt}, \textit{rda}, \textit{Rda}, \textit{rdata} or \textit{Rdata}. 
+When using a text file, the input data must be a data frame with the columns \quotes{set}, \quotes{map}, \quotes{mkr}, \quotes{phys} and \quotes{gen}. 
+If missing, an additional column \quotes{vld} (indicating if the marker is valid or not) is added with \texttt{TRUE} value by default.
+Column names must be in the first row and values must be separated by space or tab.\\
+
+Choose and open a dataset with the \quotes{\textbf{File}} and \quotes{\textbf{Open}}
+menus. The \quotes{\textbf{Data}} menu lists all the dataset opened. When one
+dataset is selected, the \quotes{{\footnotesize \textbf{MAPS}}} left frame is
+updated and shows the Marey maps (one for each chromosome) available
+in the dataset.\\
+
+In the \quotes{{\footnotesize \textbf{MAPS}}} frame, the user selects one map
+(\textit{i.e.} one chromosome) by clicking on it. The selected map is displayed
+(the physical positions on $x$-axis and the genetic distances on
+$y$-axis) in the central part of the interface. The {\footnotesize
+\quotes{\textbf{INTERPOLATIONS}}} right frame becomes active and the user can
+perform interpolations. Figure~\ref{fig:2} shows the
+\textit{Arabidopsis\_thaliana} \textit{Chromosome 1} Marey map as
+example.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{opendata.png}
+\caption{Displayed Marey map of a chromosome}
+\label{fig:2}
+\end{figure}
+
+
+
+\subsection{Map cleaning}
+
+Physical or genetic maps occasionally include errors. Those will appear 
+as outliers in a Marey map of a chromosome, disrupting the 
+monotonically increasing behaviour expected from a Marey map function. 
+Clicking on a marker on
+the map (the point becomes filled red) will display information about
+this marker in the \quotes{{\footnotesize \textbf{MARKER}}} left frame. If you
+un-select the \quotes{\textbf{Valid}} option (a red cross covers the point),
+this marker will not be included in the interpolations. This operation
+is reversible.\\
+
+Deleting the marker is also possible. The marker will be removed from
+the rest of the analysis, but not from the raw data.  The marker will be
+included again if the dataset is re-uploaded.
+
+
+\section{Interpolation methods}
+
+\subsection{Selecting and running an interpolation method}
+
+\subsubsection{Selecting a method}
+\newpage
+\begin{multicols}{2}
+  To run an interpolation method on a Marey map, click on the
+  \includegraphics[width=0.03\textwidth]{gtk-add} icon in the \quotes{{\footnotesize
+  \textbf{INTERPOLATIONS}}} right frame and select an interpolation
+  method from the list (see Figure~\ref{fig:3}).\\
+  After interpolation is done, the results are displayed in the central frame.
+  \columnbreak
+ 
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{listmethods.png}
+    \caption{List of interpolation methods.}
+    \label{fig:3}
+  \end{figure}
+ 
+\end{multicols}
+
+
+\subsubsection{Changing and deleting interpolations}
+
+You can change the parameters of an interpolation by clicking on the
+\includegraphics[width=0.03\textwidth]{gnome-settings} icon in the \quotes{{\footnotesize
+\textbf{INTERPOLATIONS}}} frame and delete an interpolation by
+clicking on the \includegraphics[width=0.03\textwidth]{stock_delete} icon. Interpolations
+can be shown in the central displaying frame,
+using the \includegraphics[width=0.03\textwidth]{stock_show-all} checkbox. The
+\includegraphics[width=0.03\textwidth]{stock_save} checkbox indicates whether the
+interpolation results should be included when saving the results into a text file.
+
+\subsubsection{Common parameters}
+
+Some parameters are common for all interpolation methods. By default, a name 
+(\quotes{\textbf{Name}} parameter) is given to an interpolation (can be changed by the
+user), the interpolation results will be saved 
+(\quotes{\textbf{Saved}} parameter) and displayed (\quotes{\textbf{Displayed}} parameter), and
+a line color (\quotes{\textbf{Line color}} parameter) is automatically chosen. These parameters
+can be changed at any time.
+
+See \ref{specific} for specific parameters to each interpolation
+method.
+
+\subsubsection{Running a method to every map in a set}
+
+It is possible to run the same
+interpolation method (with the same parameters) on all the Marey maps (all the
+chromosomes) of a dataset. Just click on the \quotes{\textbf{Apply to every map
+in the set}} checkbox in the window that opens when a new
+interpolation is being set (see Figure~\ref{fig:3}). In this case, the interpolation 
+will have the same name for all the Marey maps.
+
+Similarly, changing or deleting an interpolation will affect all the maps if you
+use the \quotes{\textbf{Apply to every map in the set}} checkbox.
+
+
+
+\subsection{Available interpolation methods}
+\label{specific}
+The \texttt{MareyMap} package currently provides three interpolation
+methods: Loess, Sliding Windows and Cubic Splines.
+
+\subsubsection{Loess}
+Loess (or Lowess for LOcally WEighted Scatterplot Smoothing) estimates
+the recombination rates by locally adjusting a polynomial curve
+($1^{st}$ or $2^{nd}$ degree). The size of the window is defined as a
+percentage of the total number of markers and therefore can adapt to
+the variation of the density of markers across the map. Inside of a
+given window, each marker is attributed a weight depending on how far
+they are from the center of the window. The parameters $\beta$ of the
+curves are those that minimize the mean squared deviation between the
+data and the curve:
+\begin{center}
+$Q = \sum_{i=1}^{n} \omega_i [y_i - f(x_i , \hat{\beta})]^2$
+\end{center}
+
+where ($x_i$ , $y_i$) are the observed data and $\omega_i$ is the
+weight of each marker calculated by:
+\begin{center}
+$\omega(u) = (1 - u^3)^3$
+\end{center}
+with:
+\begin{center}
+$u=\frac{|x_0 - x_i|}{max_N(x_0)|x_0 - x_i|} $
+\end{center}
+
+For this method, you can select the degree of the fitted curve
+(\quotes{\textbf{Degree}} parameter) and the size of the window (\quotes{\textbf{Span}}
+parameter). The span parameter is the percentage of the total number
+of points to take into account for computing the local polynomial at
+the vicinity of a marker. Span controls the degree of smoothing.
+The same span value is applied to all the maps, which may not be optimal if the error
+variance or the curvature of the underlying function $f$ varies.\\
+
+\vspace{0.6cm}
+\begin{multicols}{2}
+  This method is based on the \texttt{R} \texttt{loess} function. For more information about this method, write
+  \texttt{?loess} in a \texttt{R} console.\\
+  Selecting this method will open a window as shown in Figure~\ref{fig:4}.
+  
+  \columnbreak
+  \vspace{0.6cm}
+  \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.35\textwidth]{loessmethod.png}
+  \caption{The Loess method}
+  \label{fig:4}
+  \end{figure}
+\end{multicols}
+
+
+\subsubsection{Sliding window}
+
+\begin{multicols}{2}
+  This method estimates the local recombination rates by carrying out
+  linear regressions within a sliding window of a given physical size. You may
+  adjust the size of the window (\quotes{\textbf{Size}} parameter), the distance
+  between two successive windows (\quotes{\textbf{Shift}} parameter), as well the
+  minimum number of marker per window for the interpolation to be carried out
+  (\quotes{\textbf{Threshold}} parameter).
+
+  Selecting this method will open a window as shown in Figure~\ref{fig:5}.
+  \columnbreak
+  \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.35\textwidth]{slidingwindowmethod.png}
+  \caption{The sliding window method}
+  \label{fig:5}
+  \end{figure}
+
+\end{multicols}
+
+
+\subsubsection{Cubic splines}
+A cubic smoothing spline behaves approximately like a kernel smoother,
+but it corresponds to the function $\hat{f}$ that minimizes the penalized
+residual sum of squares given by:
+\begin{center}
+$PRSS= \sum_{i=1}^{n} (y_i - f(x_i))^2 + \lambda \int (f''(t))^2 dt $
+\end{center}
+
+$\lambda$ is the smoothing parameter, corresponding to the span in
+loess. A different $\lambda$ can be specified using the \quotes{\textbf{Spar}} parameter. \\
+
+The \quotes{\textbf{Degree of freedom}} parameter controls the amount of
+smoothing and corresponds to the trace of the smoothing matrix. It is
+also estimated automatically using spar or by cross-validation.\\
+
+These two parameters will be estimated automatically under \texttt{R} either by locally or generalized cross-validation.\\
+
+The generalized cross-validation is performed using this function:
+\begin{center}
+$CV(\lambda) = \frac{1}{n} \sum_{i=1}^n (y_i^* - \hat{f}_{\lambda}^{-i} (x_i))$
+\end{center}
+
+Here $\hat{f}_{\lambda}^{-i} (x_i)$ is the leave-one-out smooth at
+$x_i$, that is constructed using all the data except for ($x_i$,
+$y_i$) and then the resulting least squares line is evaluated at
+$x_i$. CV is calculated for different values of $\lambda$ and the
+$\lambda$ that minimizes this criterion is chosen. The
+\quotes{\textbf{Generalized cross-validation}} method should be used when there
+are several markers with identical physical position.\\
+
+\begin{multicols}{2}
+  In the graphical interface, you must fill the parameter chosen in the
+  \quotes{\textbf{Type}} list.\\ 
+  
+  This method is directly based on the function \texttt{smooth.spline}
+  of \texttt{R}. To get more information about this method you can type
+  \texttt{?smooth.spline} in a \texttt{R} console.\\
+  Selecting this method will open a window as shown in Figure~\ref{fig:6}.
+  \columnbreak
+  \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.35\textwidth]{splinemethod.png}
+  \caption{The cubic splines method}
+  \label{fig:6}
+  \end{figure}
+\end{multicols}
+
+\section{Queries}
+
+Once an interpolation method has been run on a map, you can make queries about local
+recombination rates using the \quotes{{\footnotesize \textbf{LOCAL RECOMBINATION RATE}}} right frame. 
+There are four different ways of using this frame. \\
+
+1. You may want to know the recombination rate at a given
+physical position on the currently displayed map. The position must be
+specified in base pair (ex. 31564623) but can also be expressed using
+Mb or Kb (ex. 31Mb, 564Kb or even 31Mb+564Kb+623). The local recombination 
+rate from each interpolation available will be provided for this position.
+This is done when the \quotes{\textbf{Query}} button is pressed, and shown in the
+updated \quotes{{\footnotesize \textbf{LOCAL RECOMBINATION RATE}}} window. A
+vertical red line is then displayed on the two central graphics, at the
+physical position of interest.\\
+
+\newpage
+\begin{multicols}{2}
+  2. You may want to know the recombination rate at several positions 
+  on the currently displayed map. Just list them separating them by "\string:" (ex.
+  31Mb\string:12287456\string:44Kb+564). When clicking on the
+  \quotes{\textbf{Query}} button, results will be displayed in a separate
+  window (see Figure~\ref{fig:7}) and can be saved into a text file. The results 
+  will include one column per interpolation available for the displayed map.
+  
+  \columnbreak
+  \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{severalqueries.png}
+  \caption{Example of output for several queries.}
+  \label{fig:7}
+  \end{figure}
+\end{multicols}
+
+3. You may want to know the recombination rate at many positions 
+(for instance all the genes of a genome). This can be done by
+up-loading a text file including all the positions. To do this, you can
+\begin{itemize}
+ \item enter the path of the above mentioned file and click on the \quotes{\textbf{Query}} button,
+ \item or click on \quotes{\textbf{Read positions from file}} and select the file using the file selector dialog window.
+\end{itemize}
+
+The input file must be a text file (\textit{txt} extension) containing at
+least a \quotes{map} column and a \quotes{phys} column indicating
+respectively the map and the physical position of each gene. An example
+file \textit{test\_query.txt} is provided along with the package. This file
+may also include a \quotes{set} column if there are genes from several
+genomes for instance (if this column is not present all the genes are
+considered from the same genome, \textit{i.e.} the same query). Any other column will be ignored
+by the program but will be kept in the output file.\\
+
+4. It is also possible to know the recombination rate at a position in an
+interactive way. When one marker is selected (by clicking) on the
+displayed map (in the top central frame), some details are updated in
+the \quotes{{\footnotesize \textbf{MARKERS}}} left frame. You will be able to click
+on the \quotes{\textbf{Query recombination rate}} button. As before, 
+results are shown in the updated \quotes{{\footnotesize \textbf{LOCAL
+RECOMBINATION RATE}}} frame and a vertical red line is displayed on
+the two central graphics, at the physical position of interest (see
+Figure~\ref{fig:8}).
+    
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{interactivequery.png}
+\caption{Example of an interactive query.}
+\label{fig:8}
+\end{figure}
+
+
+\section{Saving your results}
+
+\subsection{Saving data}
+Maps can be saved to \texttt{R} data files (\textit{rda}, \textit{Rda}, 
+\textit{rdata} or \textit{Rdata}) or to text files (\textit{txt}).
+
+All interpolation methods created (applied on either a map or a set of
+maps) in the current \texttt{R} console are saved in the file.\\
+
+If the file is a text file, it will include a line per marker with
+columns \quotes{set} (for the dataset name), \quotes{map} (for the
+map name, ie. the chromosome name), \quotes{phys} (for the physical
+position of the marker), \quotes{gen} (for the genetic position of the
+marker) and \quotes{vld} (indicating if the marker is valid or not).
+If interpolation methods are included (those for which the
+\includegraphics[width=0.03\textwidth]{stock_save} checkbox is checked), the file also
+contains a column per interpolation (the column name is the
+interpolation method name) with the local recombination rate computed
+for each marker. Functions used to build the interpolations are also
+saved as comments at the beginning of the text file.
+
+
+\subsection{Exporting pictures}
+Maps can also be graphically exported in \textit{jpeg}, \textit{png},
+\textit{pdf} or \textit{eps} formats. Only the currently diplayed map
+is exported, with only the interpolations which are checked as
+\quotes{\textbf{Displayed}}. You can choose to export either the Marey map (on
+the top), or the recombination rate display (on the bottom), or both.
+
+
+\subsection{Loading previous analyses}
+You may want to resume work on a dataset. 
+
+If the work was saved in a \textit{txt} format, you can re-run 
+interpolation methods using the \texttt{R} commands 
+previously used, which can be found at the top of the \textit{txt} file.
+
+If it has been saved in a \textit{rda} format, the \quotes{\textbf{Open}} command loads all previously saved interpolations.
+
+
+
+\end{document}
