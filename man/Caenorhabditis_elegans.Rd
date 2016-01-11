@@ -21,7 +21,7 @@
   Wormbase Release WS160, \url{http://www.wormbase.org}
 }
 
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 
 \examples{
 data(Caenorhabditis_elegans)

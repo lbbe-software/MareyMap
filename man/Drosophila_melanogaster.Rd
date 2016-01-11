@@ -21,7 +21,7 @@
   2nd release of D. mel genome, v 01/1998 Flybase. Marais G, Piganeau G.Hill-Robertson interference is a minor determinant of variations in codon bias across Drosophila melanogaster and Caenorhabditis elegans genomes. Mol Biol Evol. 2002 Sep;19(9):1399-406.
 }
 
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 
 \examples{
 data(Drosophila_melanogaster)

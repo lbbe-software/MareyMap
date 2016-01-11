@@ -91,7 +91,7 @@ However, most of the time you can more conveniently use already constructed obje
 	 }
 }
 
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 
 \section{Warning}{vectors \code{markerNames}, \code{physicalPositions}, \code{geneticDistances} and \code{markerValidity} must always retain the same length.}
 

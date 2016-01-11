@@ -56,7 +56,7 @@ Objects can be created by calls of the form \code{new("InterpolationParam", ...)
     \item{paramValues}{\code{signature(object = "InterpolationParam")}: ...}
 	 }
 }
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 \seealso{
 	\code{\link{Interpolation-class}}
 }

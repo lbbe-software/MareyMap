@@ -24,7 +24,7 @@
   Rutgers Combined Linkage-Physical Maps, version 2.0 (Build 35). Xiangyang Komg and Tara Matise 12/08/2004
 }
 
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 
 \examples{
 data(Homo_sapiens_female)

@@ -18,4 +18,4 @@
   \code{\link{Interpolation-class}}
   \code{\link{InterpolationParam-class}}
 }
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}

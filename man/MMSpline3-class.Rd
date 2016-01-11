@@ -73,7 +73,7 @@ Class \code{"Interpolation"}, directly.
     \item{userParam}{\code{signature(object = "MMSpline3")}: returns informations about the user parameter, used by tcl/tk interface but not that	useful for a command line user.}
 	 }
 }
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 
 \seealso{
 	\code{\link{smooth.spline}}

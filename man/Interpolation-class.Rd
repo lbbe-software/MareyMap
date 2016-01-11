@@ -66,7 +66,7 @@ Although it is not defined as virtual for technical reason, it should not be use
     \item{visible}{\code{signature(object = "Interpolation")}: returns the visibility of the interpolation}
 	 }
 }
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 
 \seealso{
 	\code{\link{InterpolationParam-class}}

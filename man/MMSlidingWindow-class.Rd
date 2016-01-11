@@ -63,7 +63,7 @@ Class \code{"Interpolation"}, directly.
     \item{userParam}{\code{signature(object = "MMSlidingWindow")}: see \code{\link{Interpolation-class}} }
 	 }
 }
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 
 \seealso{
 	\code{\link{Interpolation-class}}

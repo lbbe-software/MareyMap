@@ -43,7 +43,7 @@ Objects can be created by calls of the form \code{new("MapCollection", ...)} or 
     \item{textFile}{\code{signature(object = "MapCollection", file = "character")}: Writes the content of the collection to text file \code{text}.}
 }}
 
-\author{Aurelie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clement Rezvoy}
+\author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}
 
 \seealso{
 	\code{\link{MapSet-class}}
