@@ -22,3 +22,4 @@ addons:
   apt:
     packages:
     - latex-xcolor 
+    - texlive-lang-french
