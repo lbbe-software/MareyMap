@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper,french]{article}
+\documentclass[10pt,a4paper]{article}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
