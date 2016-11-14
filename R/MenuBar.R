@@ -471,7 +471,7 @@ onClearCollection <- function() {
 setGeneric("readRDataFile", function(file) standardGeneric("readRDataFile"))
 setMethod("readRDataFile", "character", function(file) {
 	objname <- load(file)
-	on.exit(return)
+	on.exit(return())
 	obj <- get(objname)
   
 	if(length(objname) == 1) {
@@ -532,7 +532,7 @@ setMethod("onLoadCollRda", "character", function(dummy) {
 	fildial <- paste("tk_getOpenFile", "-filetypes { {\"R binary files\" {.rda .Rdata .Rda}} {{All files} *} }")
 	ret <- .Tcl(fildial)
 	if(nchar(tclvalue(ret)) == 0)
-		return
+		return()
 	objname <- load(tclvalue(ret))
 	obj <- get(objname)
 	if(!is(obj, "MapCollection")) {
