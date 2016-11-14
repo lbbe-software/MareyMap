@@ -4,7 +4,7 @@
 
 # MareyMap
 
-`MareyMap` is an R package to estimate local recombination rates along the genome using marey maps.
+`MareyMap` is an R package to estimate local recombination rates along the genome using Marey maps.
 
 `MareyMap` relies on comparing the genetic and the physical maps of a given chromosome to estimate local recombination rates (given by the slope of the curve describing the relationship between both variables), a graphical method called the Marey map method introduced by A. Chakravarti in 1991. `MareyMap` accepts Marey map data as input (genetic and physical positions of markers for a set of chromosomes of a species) and will return local recombination rate estimates.
 
