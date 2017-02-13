@@ -268,7 +268,8 @@ setMethod("readTextFile", "character", function(file) {
     x <- unlist(strsplit(x, "@@@"))
   })
 
-	tab <- read.table(as.character(file), header = T)
+	tab <- read.table(as.character(file), header = TRUE)
+	tab <- na.omit(tab)
   if(!"set" %in% names(tab))
     tkmessageBox(title = "Error", message = "   A 'set' column is missing   ")
   if(!"map" %in% names(tab))
