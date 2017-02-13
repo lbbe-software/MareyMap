@@ -3,7 +3,7 @@ import("tcltk")
 importFrom("graphics", "abline", "layout", "layout.show", "par", "plot", "points")
 importFrom("grDevices", "dev.off", "jpeg", "pdf", "png", "postscript", "rainbow")
 importFrom("methods", "as", "is", "new", "coerce")
-importFrom("stats", "lm", "loess", "na.exclude", "predict", "runif")
+importFrom("stats", "lm", "loess", "na.exclude", "na.omit", "predict", "runif")
 importFrom("tools", "file_ext")
 importFrom("utils", "read.table", "write.table")
 
