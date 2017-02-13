@@ -133,7 +133,29 @@ and \textit{Homo sapiens}\footnote{Rutgers Combined Linkage-Physical Maps, versi
 When the input dataset does not come from the package, the extension of the data file must be \textit{txt}, \textit{rda}, \textit{Rda}, \textit{rdata} or \textit{Rdata}. 
 When using a text file, the input data must be a data frame with the columns \quotes{set}, \quotes{map}, \quotes{mkr}, \quotes{phys} and \quotes{gen}. 
 If missing, an additional column \quotes{vld} (indicating if the marker is valid or not) is added with \texttt{TRUE} value by default.
-Column names must be in the first row and values must be separated by space or tab.\\
+The \quotes{set} colum corresponds to the organism, 
+\quotes{map} corresponds to chromosomes, 
+\quotes{mkr} corresponds to markers of genes, 
+\quotes{phys} corresponds to physical position of markers,
+\quotes{gen} corresponds to genetic distances between each marker and 
+\quotes{vld} corresponds to valid markers (this column is not mandatory).\\
+
+Column names must be in the first row and values must be separated by a white space and each character string must be between double quotes (including column names), as in the example below.
+The rows which contains NA entries are removed. 
+
+\begin{verbatim}
+"set" "map" "mkr" "phys" "gen" "vld"
+"Arabidopsis thaliana" "Chromosome 1" "GST1" 663291 3.99 TRUE
+"Arabidopsis thaliana" "Chromosome 1" "SGCSNP151" 1148355 3.35 TRUE
+"Arabidopsis thaliana" "Chromosome 1" "AtEAT1" 1435872 3.87 TRUE
+"Arabidopsis thaliana" "Chromosome 1" "ve002" 1521308 7.15 TRUE
+"Arabidopsis thaliana" "Chromosome 1" "SGCSNP388" 1526933 7.66 TRUE
+"Arabidopsis thaliana" "Chromosome 1" "SGCSNP170" 1642565 7.66 TRUE
+"Arabidopsis thaliana" "Chromosome 1" "ve003" 2032443 7.76 TRUE
+"Arabidopsis thaliana" "Chromosome 1" "SGCSNP308" 2664435 0.89 TRUE
+\end{verbatim}
+
+
 
 Choose and open a dataset with the \quotes{\textbf{File}} and \quotes{\textbf{Open}}
 menus. The \quotes{\textbf{Data}} menu lists all the dataset opened. When one
