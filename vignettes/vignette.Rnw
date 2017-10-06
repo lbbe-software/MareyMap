@@ -43,7 +43,11 @@ a graphical method called the Marey map method introduced by A. Chakravarti in 1
 \vspace{0.6cm}
 
 If you use \texttt{MareyMap}, please cite: \\
-Rezvoy C, Charif D, Guéguen L, Marais GAB. (2007) MareyMap: an R-based tool with graphical interface for estimating recombination rates. \textit{Bioinformatics} 23(16):2188-9.
+Rezvoy C, Charif D, Guéguen L, Marais GAB. (2007) MareyMap: an R-based tool with graphical interface for estimating recombination rates. \textit{Bioinformatics} 23(16):2188-9. \\
+https://doi.org/10.1093/bioinformatics/btm315\\
+
+If you use \texttt{MareyMapOnline}, please cite: \\
+Siberchicot A, Bessy A, Guéguen L, Marais G (2017) MareyMap Online: A User-Friendly Web Application and Database Service for Estimating Recombination Rates Using Physical and Genetic Maps. \textit{Genome Biology and Evolution} 9(10):2506-2509. https://doi.org/10.1093/gbe/evx178
 
 \vspace{0.6cm}
 \tableofcontents
