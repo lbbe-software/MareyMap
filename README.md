@@ -3,7 +3,7 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/MareyMap)](http://cran.r-project.org/package=MareyMap)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/MareyMap)](https://cran.r-project.org/package=MareyMap)
 
-# MareyMap
+# Overview
 
 `MareyMap` is an R package to estimate local recombination rates along the genome using Marey maps.
 
@@ -19,36 +19,29 @@ All functionalities of `MareyMap` are introduced on the [vignette](https://cran.
 
 
 
-### Installing `MareyMap`
+### The package
 
-To install the development version from GitHub:
-
-1. Install the release version of `devtools` from CRAN with `install.packages("devtools")`.
-
-2. Make sure you have a working development environment.
-    * **Windows**: Install [Rtools](http://cran.r-project.org/bin/windows/Rtools/).
-    * **Mac**: Install Xcode from the Mac App Store.
-    * **Linux**: Install a compiler and various development libraries (details vary across different flavors of Linux).
-    
-3. Then:
-```r
-library(devtools)
-install_github("aursiber/MareyMap")
-```
-
-The stable version can be installed from CRAN using:
+The stable version of `MareyMap` can be installed from CRAN using:
 ```r
 install.packages("MareyMap")
 ```
 
-Once installed, the package can be loaded using:
+The development version of MareyMap can be installed from GitHub (`remotes` needed):
 ```r
-library("MareyMap")
+if (!requireNamespace("remotes", quietly = TRUE))
+   install.packages("remotes")
+   
+remotes::install_github("aursiber/MareyMap")
+```
+
+Finally load the package in your current R session with the following R command:
+```r
+library(MareyMap)
 ```
 
 
 
-### The web application of `MareyMap`
+### The shiny app
 
 A web application (a `Shiny` app) is available to use the functionalities of the `MareyMap` package in an interactive way.
 `MareyMap Online` offers a simpler version of the R package MareyMap. 
