@@ -82,7 +82,7 @@ setMethod("onQueryLocalRate", "ANY", function(pos, resFrm) {
         tkmessageBox(title = "Error", message = "   The text file must contain a 'map' column   ")
       if(!("phys" %in% names(pos)))
         tkmessageBox(title = "Error", message = "   The text file must contain a 'phys' column   ")
-      if(length(levels(pos$map)) > 1)
+      if(length(levels(as.factor(pos$map))) > 1)
         tkmessageBox(title = "Caution", message = paste("Only the current map ('", getVar("curMap"),"' in '", getVar("curSet"),"') is selected in the file.", sep = ""))
       pos <- pos[pos$map == getVar("curMap"), ]
       readFromFile <- TRUE
