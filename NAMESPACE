@@ -1,4 +1,3 @@
-import("tkrplot")
 import("tcltk")
 importFrom("graphics", "abline", "layout", "layout.show", "par", "plot", "points")
 importFrom("grDevices", "dev.off", "jpeg", "pdf", "png", "postscript", "rainbow")
@@ -6,8 +5,6 @@ importFrom("methods", "as", "is", "new", "coerce")
 importFrom("stats", "lm", "loess", "na.exclude", "na.omit", "predict", "runif")
 importFrom("tools", "file_ext")
 importFrom("utils", "read.table", "write.table")
-
-
 
 exportClasses("Interpolation")
 exportMethods("name","rates","visible","color","persistent",
@@ -50,4 +47,3 @@ exportMethods("MMSpline3","query","interpolate","plotModel","plotRate","userPara
                 "spar","spar<-","df","df<-","type","type<-","gcv","gcv<-")
 
 exportMethods("startMareyMapGUI")
-

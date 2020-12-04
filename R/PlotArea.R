@@ -328,6 +328,10 @@ setMethod("pltRates", "missing", function(dummy) {
 
 setGeneric("PlotArea", function(parent) standardGeneric("PlotArea"))
 setMethod("PlotArea", "ANY", function(parent) {
+  
+  if (!requireNamespace("tkrplot", quietly = TRUE)) 
+    stop("You need to install the 'tkrplot' package to use this function.")
+  
 	if(class(parent) != "tkwin")
 		return()
 	regVar("plotParam")
@@ -339,8 +343,8 @@ setMethod("PlotArea", "ANY", function(parent) {
 	regVar("savBounds", T)
 	
 	frm <- tkframe(parent, relief = "sunken", borderwidth = 2)
-	plt1 <- tkrplot(frm, fun = drawPlt1, hscale = 1, vscale = 0.8)
-	plt2 <- tkrplot(frm, fun = drawPlt2, hscale = 1, vscale = 0.4)
+	plt1 <- tkrplot::tkrplot(frm, fun = drawPlt1, hscale = 1, vscale = 0.8)
+	plt2 <- tkrplot::tkrplot(frm, fun = drawPlt2, hscale = 1, vscale = 0.4)
 	
 	regVar("plotArea", plt1)
 	tkgrid(plt1)
@@ -350,8 +354,8 @@ setMethod("PlotArea", "ANY", function(parent) {
 	tkbind(plt1, "<ButtonRelease-1>", onPlotClicked)
 	
 	attachCallback("tkrreplot", function() {
-		tkrreplot(plt1)
-		tkrreplot(plt2)		
+	  tkrplot::tkrreplot(plt1)
+	  tkrplot::tkrreplot(plt2)		
 		if(getVar("savBounds")) {
 			setVar("mapBounds", getVar("plotParam")$usr)
 			setVar("savBounds", F)
@@ -360,8 +364,8 @@ setMethod("PlotArea", "ANY", function(parent) {
 
 	attachCallback("tkrreplot", function() {
 		if(!is.na(getVar("pltLim")[1])) {
-			tkrreplot(plt1)
-			tkrreplot(plt2)
+		  tkrplot::tkrreplot(plt1)
+		  tkrplot::tkrreplot(plt2)
 		}
 	},"pltLim")
 
@@ -371,8 +375,8 @@ setMethod("PlotArea", "ANY", function(parent) {
 	}, "curMap")
 
 	attachCallback("drawest", function() {
-		tkrreplot(plt2)
-		tkrreplot(plt1)
+	  tkrplot::tkrreplot(plt2)
+	  tkrplot::tkrreplot(plt1)
 	}, "curEst")
 	frm
 })
