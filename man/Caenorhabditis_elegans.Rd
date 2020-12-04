@@ -18,7 +18,7 @@
 }
 
 \source{
-  Wormbase Release WS160, \url{http://www.wormbase.org}
+  Wormbase Release WS160, \url{https://wormbase.org//}
 }
 
 \author{Aurélie Siberchicot \email{aurelie.siberchicot@univ-lyon1.fr} and Clément Rezvoy}

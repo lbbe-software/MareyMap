@@ -119,7 +119,7 @@ This includes Marey maps for:
   element distributions in Arabidopsis thaliana. 
   Genome Res. 2003. 13:1897-1903.}, 
 \textit{Caenorhabditis elegans}\footnote{Wormbase Release WS160
-  \url{http://www.wormbase.org}. see Rizzon C, Martin E, Marais G, Duret L, Segalat L, Biemont C. 
+  \url{https://wormbase.org//}. see Rizzon C, Martin E, Marais G, Duret L, Segalat L, Biemont C. 
   Patterns of selection against transposons inferred from the distribution of Tc1, Tc3 and Tc5 
   insertions in the mut-7 line of the nematode Caenorhabditis elegans. 
   Genetics. 2003. 165:1127-1135.}, 
