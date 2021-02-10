@@ -65,7 +65,7 @@ jobs:
           done < <(Rscript -e 'writeLines(remotes::system_requirements("ubuntu", "20.04"))')
           
       - name: Install system dependencies Mac
-        if: runner.os == 'Mac'
+        if: runner.os == 'macOS'
         run: brew install xquartz    
 
       - name: Install dependencies
