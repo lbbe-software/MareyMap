@@ -41,6 +41,15 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
+      - name: Cache installation
+        id: cache-texlive
+        uses: actions/cache@v2
+        with:
+          path: |
+            /tmp/texlive
+            $HOME/.texlive
+          key: ${{ runner.os }}-texlive
+          
       - name: Query dependencies
         run: |
           install.packages('remotes')
