@@ -66,8 +66,8 @@ jobs:
           
       - name: Install brew Mac packages
         if: runner.os == 'MacOS'
-        run: brew install ${{ matrix.config.brew_packages }}
-
+        run: brew install xquartz
+        
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
