@@ -31,6 +31,7 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      DISPLAY: ':99.0'
 
     steps:
       - uses: actions/checkout@v2
@@ -48,7 +49,6 @@ jobs:
         run: |
           sudo apt-get install texlive-publishers texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
           sudo apt-get install tcl8.6-dev tk8.6-dev
-          export DISPLAY=':99.0'
           
       - name: Query dependencies
         run: |
