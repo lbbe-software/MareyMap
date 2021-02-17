@@ -46,7 +46,7 @@ jobs:
       - name: Install texlive and tkrplot
         if: runner.os == 'Linux'
         run: |
-          sudo apt-get install texlive-publishers texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra latex-xcolor texlive-lang-french
+          sudo apt-get install texlive-publishers texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
           sudo apt-get install tk-dev
           
       - name: Query dependencies
