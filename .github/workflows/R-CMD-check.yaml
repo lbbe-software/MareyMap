@@ -47,6 +47,8 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get install texlive-publishers texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+          sudo add-apt-repository ppa:marutter/c2d4u3.5
+          sudo apt update
           sudo apt-get install tk-dev r-cran-tkrplot
           
       - name: Query dependencies
