@@ -48,7 +48,7 @@ jobs:
         run: |
           sudo apt-get install texlive-publishers texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
           sudo apt-get install tcl8.6-dev tk8.6-dev
-          export DISPLAY=:99.0
+          export DISPLAY=':99.0'
           
       - name: Query dependencies
         run: |
