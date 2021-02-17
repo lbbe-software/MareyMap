@@ -1,5 +1,4 @@
 [![Travis-CI Build Status](https://travis-ci.org/aursiber/MareyMap.svg?branch=master)](https://travis-ci.org/aursiber/MareyMap)
-[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/40lihci6k3r2j224/branch/master?svg=true)](https://ci.appveyor.com/project/aursiber/mareymap/branch/master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/MareyMap)](http://cran.r-project.org/package=MareyMap)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/MareyMap)](https://cran.r-project.org/package=MareyMap)
 [![R-CMD-check](https://github.com/aursiber/MareyMap/workflows/R-CMD-check/badge.svg)](https://github.com/aursiber/MareyMap/actions)
