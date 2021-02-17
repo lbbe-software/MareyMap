@@ -46,7 +46,7 @@ jobs:
       - name: Install texlive and tkrplot
         if: runner.os == 'Linux'
         run: |
-          sudo apt-get install texlive-publishers texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+          sudo apt-get install texlive-publishers texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra latex-xcolor texlive-lang-french
           sudo apt-get install tk-dev
           
       - name: Query dependencies
@@ -87,7 +87,7 @@ jobs:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
         run: |
           options(crayon.enabled = TRUE)
-          rcmdcheck::rcmdcheck(args = c("--no-manual", "--ignore-vignettes", "--no-build-vignettes"), build_args = c("--no-manual", "--ignore-vignettes", "--no-build-vignettes"), error_on = "warning", check_dir = "check")
+          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran", "--ignore-vignettes", "--no-build-vignettes"), build_args = c("--no-manual", "--no-build-vignettes"), error_on = "warning", check_dir = "check")
         shell: Rscript {0}
 
       - name: Upload check results
