@@ -43,10 +43,11 @@ jobs:
       
       - uses: r-lib/actions/setup-tinytex@master
         
-      - name: Install texlive
+      - name: Install texlive and tkrplot
         if: runner.os == 'Linux'
         run: |
           sudo apt-get install texlive-publishers texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+          sudo apt-get install r-cran-tkrplot tk-dev
           
       - name: Query dependencies
         run: |
