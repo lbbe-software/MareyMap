@@ -332,7 +332,7 @@ setMethod("PlotArea", "ANY", function(parent) {
   if (!requireNamespace("tkrplot", quietly = TRUE)) 
     stop("You need to install the 'tkrplot' package to use this function.")
   
-	if(class(parent) != "tkwin")
+	if(!inherits(parent, "tkwin"))
 		return()
 	regVar("plotParam")
 	regVar("xLim", NA)
