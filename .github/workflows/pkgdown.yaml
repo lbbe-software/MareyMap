@@ -34,6 +34,10 @@ jobs:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+          
+      - name: Install brew Mac packages
+        if: runner.os == 'MacOS'
+        run: brew install xquartz    
 
       - name: Install dependencies
         run: |
