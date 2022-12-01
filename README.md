@@ -44,7 +44,7 @@ A web application (a `Shiny` app) is available to use the functionalities of the
 `MareyMap Online` offers a simpler version of the R package MareyMap. 
 
 The `MareyMap Online Shiny app` can be found at:
-http://lbbe-shiny.univ-lyon1.fr/MareyMapOnline/
+https://lbbe-shiny.univ-lyon1.fr/MareyMapOnline/
 
 
 

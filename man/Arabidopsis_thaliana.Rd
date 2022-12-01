@@ -19,7 +19,7 @@
 
 \source{
   The physical positions were also recorded for those genetic markers that have both been mapped to the Recombinant Inbred (RI) recombination map 
-  (see \url{http://arabidopsis.info/}), and have been precisely physically mapped on the basis of flanking sequence, 
+  (see \url{https://arabidopsis.info/}), and have been precisely physically mapped on the basis of flanking sequence, 
   using the marker position information from TAIR. (release 1). 
   Wright SI, Agrawal N, Bureau TE. Effects of recombination rate and gene density on transposable element distributions in Arabidopsis thaliana.Genome Res. 2003 Aug;13(8):1897-903.
 }
