@@ -1,8 +1,0 @@
-MareyMap is developed by the Laboratory Of Biometry and Evolutionary Biology (LBBE)
-
-UMR 5558 CNRS
-University Lyon 1
-43 boulevard du 11 novembre 1918
-69622, Villeurbanne Cedex, France.
-
-For more information about this project browse http://pbil.univ-lyon1.fr/software/mareymap/

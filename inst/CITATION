@@ -1,0 +1,24 @@
+citHeader("To cite MareyMap in publications use:")
+
+citEntry(
+  entry   = "Article",
+  title   = "{MareyMap Online: A User-Friendly Web Application and Database Service for Estimating Recombination Rates Using Physical and Genetic Maps}",
+  author  = c(person(given = "Aur\\'elie", family = "Siberchicot"),
+              person(given = "Adrien", family = "Bessy"),
+              person(given = "Laurent", family = "Gu\\'eguen"),
+              person(given = "Gabriel", family = "Marais")),
+  journal = "Genome Biology and Evolution",
+  year    = "2018",
+  doi     = "10.1093/gbe/evx178",
+  url     = "https://doi.org/10.1093/gbe/evx178",
+
+  textVersion  =
+  paste("Siberchicot A, Bessy A, Guéguen L, Marais G (2018). 
+     MareyMap Online: A User-Friendly Web Application and Database Service for Estimating Recombination Rates Using Physical and Genetic Maps. 
+     Genome Biology and Evolution.",
+        "URL https://doi.org/10.1093/gbe/evx178 ")
+)
+
+citFooter("Please cite both the package and R when using them for data analysis.",
+	  "See also", sQuote("citation()"),
+	  "for citing R.")
