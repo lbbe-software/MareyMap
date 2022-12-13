@@ -45,7 +45,7 @@ jobs:
       - name: Install libs for Linux
         if: runner.os == 'Linux'
         run: |
-          sudo apr-get update
+          sudo apt-get update
           sudo apt-get install -y texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-full
           sudo apt-get install -y tcl8.6-dev tk8.6-dev
           
