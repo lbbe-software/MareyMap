@@ -62,6 +62,7 @@ jobs:
           tinytex::parse_install(text = "! LaTeX Error: File `ucs.sty' not found.")
           tinytex::parse_install(text = "! LaTeX Error: File `colortbl.sty' not found.")
           tinytex::parse_install(text = "! LaTeX Error: File `fullpage.sty' not found.")
+          tinytex::parse_install(text = "! LaTeX Error: File `multirow.sty' not found.")
         shell: Rscript {0}
       
       - uses: r-lib/actions/setup-r-dependencies@v2
