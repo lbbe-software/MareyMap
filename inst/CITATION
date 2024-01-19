@@ -1,7 +1,7 @@
 citHeader("To cite MareyMap in publications use:")
 
-citEntry(
-  entry   = "Article",
+bibentry(
+  bibtype = "Article",
   title   = "{MareyMap Online: A User-Friendly Web Application and Database Service for Estimating Recombination Rates Using Physical and Genetic Maps}",
   author  = c(person(given = "Aur\\'elie", family = "Siberchicot"),
               person(given = "Adrien", family = "Bessy"),
