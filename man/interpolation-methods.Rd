@@ -10,7 +10,7 @@
 }
 \section{Methods}{
 \describe{
-\item{object = "MareyMap", inter\_name = "character"}{set or returns the interpolation \code{inter\_name} in object \code{\link{MareyMap-class}}}
+\item{object = "MareyMap", inter_name = "character"}{set or returns the interpolation \code{inter_name} in object \code{\link{MareyMap-class}}}
 }}
 \keyword{methods}
 \seealso{

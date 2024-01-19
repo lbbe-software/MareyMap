@@ -38,7 +38,7 @@ Although it is not defined as virtual for technical reason, it should not be use
 \section{Slots}{
 	 \describe{
     \item{\code{name}:}{Object of class \code{"character"} holding the name of the interpolation }
-    \item{\code{color}:}{Object of class \code{"character"} holding the name or the code (\#RRGGBB) of the color of the interpolation on the plot }
+    \item{\code{color}:}{Object of class \code{"character"} holding the name or the code (#RRGGBB) of the color of the interpolation on the plot }
     \item{\code{physicalPositions}:}{Object of class \code{"vector"} holding the valid physical position of the map on which the interpolation is calculated. This redundancy is necessary to cary out the plotting of the map. }
     \item{\code{rates}:}{Object of class \code{"vector"} holding the local recombination rate estimations at the location of each markers. }
     \item{\code{visible}:}{Object of class \code{"logical"}, whether or not the interpolation should be plotted }

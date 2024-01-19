@@ -82,7 +82,7 @@ However, most of the time you can more conveniently use already constructed obje
     \item{plotMarkers}{\code{signature(object = "MareyMap")}: plots only the markers of the map, without plotting the interpolations}
     \item{plotModels}{\code{signature(object = "MareyMap")}: plot only the models of the interpolations}
     \item{plotRates}{\code{signature(object = "MareyMap")}: plots only the recombination rates}
-    \item{query}{\code{signature(object = "MareyMap", pos = "numeric")}: returns the value of the local  recombination rate at physical position \code{pos} as estimated by the interpolations defined on the map. Returns a list of integers (or NAs). each individual result may be accessed via result[[interpolation\_name]]}
+    \item{query}{\code{signature(object = "MareyMap", pos = "numeric")}: returns the value of the local  recombination rate at physical position \code{pos} as estimated by the interpolations defined on the map. Returns a list of integers (or NAs). each individual result may be accessed via result[[interpolation_name]]}
     \item{removeMarker}{\code{signature(object = "MareyMap", value = "integer")}: remove the marker number \code{value}.}
     \item{setName<-}{\code{signature(object = "MareyMap", value = "ANY")}: replaces the name of the set with a new \code{character}.}
     \item{setName}{\code{signature(object = "MareyMap")}: returns the name of the set.}

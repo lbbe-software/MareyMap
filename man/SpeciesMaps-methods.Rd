@@ -8,7 +8,7 @@
 }
 \section{Methods}{
 \describe{
-\item{set\_name = "character"}{ creates a new object of the class \code{\link{MapSet}} with the name set\_name. }
+\item{set_name = "character"}{ creates a new object of the class \code{\link{MapSet}} with the name set_name. }
 }}
 \keyword{methods}
 

@@ -8,8 +8,8 @@
 }
 \section{Methods}{
 \describe{
-  \item{data\_table = "missing", column\_names = "missing", set\_name = "missing", map\_name = "missing"}{Default constructor}
-  \item{data\_table = "data.frame"}{fill the class using the provided data.frame}
+  \item{data_table = "missing", column_names = "missing", set_name = "missing", map_name = "missing"}{Default constructor}
+  \item{data_table = "data.frame"}{fill the class using the provided data.frame}
 }}
 \keyword{methods}
 \seealso{
