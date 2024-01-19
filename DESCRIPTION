@@ -8,7 +8,7 @@ Author: Aurélie Siberchicot, Clément Rezvoy, Delphine Charif, Laurent Gueguen 
 Maintainer: Aurélie Siberchicot <aurelie.siberchicot@univ-lyon1.fr>
 License: GPL (>= 2)
 Description: Local recombination rates are graphically estimated across a genome using Marey maps.
-BugReports: https://github.com/aursiber/MareyMap/issues
+BugReports: https://github.com/lbbe-software/MareyMap/issues
 URL: https://lbbe.univ-lyon1.fr/fr/mareymap ; https://lbbe-shiny.univ-lyon1.fr/MareyMapOnline/
 LazyData: no
 Encoding: UTF-8

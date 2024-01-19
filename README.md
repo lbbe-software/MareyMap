@@ -1,6 +1,6 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/MareyMap)](http://cran.r-project.org/package=MareyMap)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/MareyMap)](https://cran.r-project.org/package=MareyMap)
-[![R-CMD-check](https://github.com/aursiber/MareyMap/workflows/R-CMD-check/badge.svg)](https://github.com/aursiber/MareyMap/actions)
+[![R-CMD-check](https://github.com/lbbe-software/MareyMap/workflows/R-CMD-check/badge.svg)](https://github.com/lbbe-software/MareyMap/actions)
 
 `MareyMap` is an R package to estimate local recombination rates along the genome using Marey maps.
 
@@ -28,7 +28,7 @@ The development version of MareyMap can be installed from GitHub (`remotes` need
 if (!requireNamespace("remotes", quietly = TRUE))
    install.packages("remotes")
    
-remotes::install_github("aursiber/MareyMap")
+remotes::install_github("lbbe-software/MareyMap")
 ```
 
 Finally load the package in your current R session with the following R command:
