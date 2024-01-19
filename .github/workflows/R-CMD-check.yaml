@@ -53,6 +53,15 @@ jobs:
         if: runner.os == 'MacOS'
         run: brew install xquartz
         
+      - name: Install dependencies
+        run: |
+          install.packages("remotes")
+          remotes::install_deps(dependencies = TRUE)
+          remotes::install_cran("rcmdcheck")
+          install.packages('tinytex')
+          tinytex::parse_install(text = "! LaTeX Error: File `ucs.sty' not found.")
+        shell: Rscript {0}
+      
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           pak-version: devel
