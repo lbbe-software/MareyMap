@@ -1,6 +1,6 @@
 Package: MareyMap
 Title: Estimation of Meiotic Recombination Rates Using Marey Maps
-Version: 1.3.7
+Version: 1.3.8
 Depends: R (>= 2.10)
 Imports: graphics, grDevices, methods, stats, tcltk, tools, utils
 Suggests: tkrplot
