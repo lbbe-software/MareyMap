@@ -1,17 +1,9 @@
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version-ago/MareyMap)](http://cran.r-project.org/package=MareyMap)
+[![CRAN_Release_Badge](https://www.r-pkg.org/badges/version-ago/MareyMap)](https://cran.r-project.org/package=MareyMap)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/MareyMap)](https://cran.r-project.org/package=MareyMap)
-[![R-CMD-check](https://github.com/lbbe-software/MareyMap/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lbbe-software/MareyMap/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/lbbe-software/MareyMap/workflows/R-CMD-check/badge.svg)](https://github.com/lbbe-software/MareyMap/actions)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
-**Please note! Since January 2024, this repository has belonged to the lbbe-software organization.** 
-To avoid confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using git remote on the command line:
-
-`git remote set-url origin git@github.com:lbbe-software/MareyMap.git`
-
-or
-
-`git remote set-url origin https://github.com/lbbe-software/MareyMap.git`
-
----------------------------
 
 `MareyMap` is an R package to estimate local recombination rates along the genome using Marey maps.
 
